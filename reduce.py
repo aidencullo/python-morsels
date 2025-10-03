@@ -21,7 +21,7 @@ def test_concat_with_reduce():
 
         result = concat_with_reduce(input)
 
-        assert result == expected
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
         log("blank test passed!", 8)
 
     def test_hello_world():
@@ -32,7 +32,7 @@ def test_concat_with_reduce():
 
         result = concat_with_reduce(input)
 
-        assert result == expected
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
         log("hello world test passed!", 8)
 
     test_blank()
@@ -56,7 +56,7 @@ def test_flatten_with_reduce():
 
         result = flatten_with_reduce(input)
 
-        assert result == expected
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
         log("2x2 tests passed!", 8)
 
     test_2_by_2()
