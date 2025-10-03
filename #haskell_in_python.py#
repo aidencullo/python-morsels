@@ -17,14 +17,14 @@ def test_tail(tail):
     # Percent formatting
     print('%s passed!' % (tail.__name__))
 
+test_tail(tail)
+test_tail(tail_list_comprehension)
+
 def use_tee():
     from itertools import tee
     tee("hey", 10)
     iterators = tee("hey", 10)
-    for it in iterators:
-        for x in it:
-            print("{} el in {} iterator".format(x, it))
-
-test_tail(tail)
-test_tail(tail_list_comprehension)
-use_tee()
+     for it in iterators:
+         for x in it:
+             print("{} el in {} iterator".format(x, it))
+ojdskljafhlkdfj
