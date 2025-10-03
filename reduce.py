@@ -1,7 +1,8 @@
 from functools import reduce
 
 def concat_with_reduce(lst):
-    concat = lambda x, y: x + y
+    def concat(x, y):
+        return x + y
     return reduce(concat, lst, "")
 
 def test_concat_with_reduce():
