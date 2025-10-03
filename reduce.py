@@ -65,6 +65,7 @@ def test_flatten_with_reduce():
 
 def product_with_reduce(lst):
     from operator import mul
+
     return reduce(mul, lst)
 
 
@@ -83,6 +84,7 @@ def test_product_with_reduce():
         one_to_ten = list(range(1, 10))
         input = one_to_ten
         from math import prod
+
         product_of_one_to_ten = prod(one_to_ten)
         expected = product_of_one_to_ten
 
@@ -90,7 +92,7 @@ def test_product_with_reduce():
 
         assert result == expected, f"Expected {expected!r}, got {result!r}"
         log("1..10 tests passed!", 8)
-        
+
     test_2_by_2()
     test_one_to_ten()
     log("product tests passed!")
