@@ -1,4 +1,6 @@
 from functools import reduce
+from math import prod
+from operator import mul
 
 
 def log(msg, indent=4):
@@ -64,8 +66,6 @@ def test_flatten_with_reduce():
 
 
 def product_with_reduce(lst):
-    from operator import mul
-
     return reduce(mul, lst)
 
 
@@ -83,7 +83,6 @@ def test_product_with_reduce():
     def test_one_to_ten():
         one_to_ten = list(range(1, 11))
         input = one_to_ten
-        from math import prod
 
         product_of_one_to_ten = prod(one_to_ten)
         expected = product_of_one_to_ten
