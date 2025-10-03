@@ -1,9 +1,12 @@
 from functools import reduce
 
+
 def concat_with_reduce(lst):
     def concat(x, y):
         return x + y
+
     return reduce(concat, lst, "")
+
 
 def test_concat_with_reduce():
     s = "hello world"
@@ -12,20 +15,24 @@ def test_concat_with_reduce():
     print("concat tests passed!")
 
 
-
 def flatten_with_reduce():
     pass
+
 
 def product_with_reduce():
     pass
 
+
 def max_with_reduce():
     pass
+
 
 def min_with_reduce():
     pass
 
+
 def main():
     test_concat_with_reduce()
+
 
 main()
