@@ -1,10 +1,15 @@
-def reduce():
+def concat_with_reduce():
     pass
 
-def add(x, y):
-    return x + y
+def flatten_with_reduce():
+    pass
 
-def oneToTen():
-    return list(range(1, 10))
+def product_with_reduce():
+    pass
 
-assert(reduce(add, oneToTen) == 1)
+def max_with_reduce():
+    pass
+
+def min_with_reduce():
+    pass
+
