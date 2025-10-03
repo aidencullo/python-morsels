@@ -15,9 +15,19 @@ def test_concat_with_reduce():
     print("concat tests passed!")
 
 
-def flatten_with_reduce():
-    pass
+def flatten_with_reduce(lst):
+    def concat(x, y):
+        return x + y
 
+    return reduce(concat, lst, [])
+    
+
+
+def test_flatten_with_reduce():
+    nested = [[0] * 2] * 2
+    expected = [0] * 4
+    assert flatten_with_reduce(nested) == expected
+    print("flatten tests passed!")
 
 def product_with_reduce():
     pass
@@ -33,6 +43,7 @@ def min_with_reduce():
 
 def main():
     test_concat_with_reduce()
+    test_flatten_with_reduce()
 
 
 main()
