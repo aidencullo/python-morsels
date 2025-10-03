@@ -1,6 +1,6 @@
 from functools import reduce
 from math import prod
-from operator import mul
+from operator import concat, mul
 
 
 def log(msg, indent=4):
@@ -8,9 +8,6 @@ def log(msg, indent=4):
 
 
 def concat_with_reduce(lst):
-    def concat(x, y):
-        return x + y
-
     return reduce(concat, lst, "")
 
 
