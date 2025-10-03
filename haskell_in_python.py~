@@ -1,0 +1,10 @@
+def tail(xs):
+    return xs[1:]
+
+
+
+
+
+assert tail([1, 2]) == [2]
+assert tail([1, 2]) == [2], "[1, 2] failed"
+assert tail([1, 2]) == [2], "[1, 2] failed"
