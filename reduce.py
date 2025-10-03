@@ -5,7 +5,6 @@ def log(msg, indent=4):
     print(" " * indent + msg)
 
 
-
 def concat_with_reduce(lst):
     def concat(x, y):
         return x + y
@@ -35,7 +34,7 @@ def test_concat_with_reduce():
 
         assert result == expected
         log("hello world test passed!", 8)
-        
+
     test_blank()
     test_hello_world()
     log("concat tests passed!")
