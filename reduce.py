@@ -1,6 +1,6 @@
 from functools import reduce
 from math import prod
-from operator import concat, mul
+from operator import add, concat, mul
 
 
 def log(msg, indent=4):
@@ -154,12 +154,43 @@ def min_with_reduce(lst):
     return reduce(lambda x, y: x if y > x else y, lst)
 
 
+def test_sum_with_reduce():
+    def test_all_zeros():
+        zeros = [0] * 10
+        input = zeros
+        expected = 0
+
+        result = sum_with_reduce(input)
+
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
+        log("all tens tests passed!", 8)
+
+    def test_one_to_ten():
+        one_to_ten = list(range(1, 11))
+        input = one_to_ten
+        expected = 55
+
+        result = sum_with_reduce(input)
+
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
+        log("1..10 tests passed!", 8)
+
+    test_all_zeros()
+    test_one_to_ten()
+    log("sum tests passed!")
+
+
+def sum_with_reduce(lst):
+    return reduce(add, lst)
+
+
 def main():
     test_concat_with_reduce()
     test_flatten_with_reduce()
     test_product_with_reduce()
     test_max_with_reduce()
     test_min_with_reduce()
+    test_sum_with_reduce()
 
 
 main()
