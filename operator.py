@@ -1,4 +1,3 @@
-from operator import eq
 
 
 def all_same(lst):
