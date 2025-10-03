@@ -128,8 +128,34 @@ def max_with_reduce(lst):
     return reduce(lambda x, y: x if x > y else y, lst)
 
 
-def min_with_reduce():
-    pass
+def test_min_with_reduce():
+    def test_all_zeros():
+        zeros = [0] * 10
+        input = zeros
+        expected = 0
+
+        result = min_with_reduce(input)
+
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
+        log("all tens tests passed!", 8)
+
+    def test_one_to_ten():
+        one_to_ten = list(range(1, 11))
+        input = one_to_ten
+        expected = 1
+
+        result = min_with_reduce(input)
+
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
+        log("1..10 tests passed!", 8)
+
+    test_all_zeros()
+    test_one_to_ten()
+    log("min tests passed!")
+
+
+def min_with_reduce(lst):
+    return reduce(lambda x, y: x if y > x else y, lst)
 
 
 def main():
@@ -137,6 +163,7 @@ def main():
     test_flatten_with_reduce()
     test_product_with_reduce()
     test_max_with_reduce()
+    test_min_with_reduce()
 
 
 main()
