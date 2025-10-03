@@ -63,8 +63,37 @@ def test_flatten_with_reduce():
     log("flatten tests passed!")
 
 
-def product_with_reduce():
-    pass
+def product_with_reduce(lst):
+    from operator import mul
+    return reduce(mul, lst)
+
+
+def test_product_with_reduce():
+    def test_2_by_2():
+        nested = [2] * 2
+        input = nested
+        expected = 4
+
+        result = product_with_reduce(input)
+
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
+        log("2x2 tests passed!", 8)
+
+    def test_one_to_ten():
+        one_to_ten = list(range(1, 10))
+        input = one_to_ten
+        from math import prod
+        product_of_one_to_ten = prod(one_to_ten)
+        expected = product_of_one_to_ten
+
+        result = product_with_reduce(input)
+
+        assert result == expected, f"Expected {expected!r}, got {result!r}"
+        log("1..10 tests passed!", 8)
+        
+    test_2_by_2()
+    test_one_to_ten()
+    log("product tests passed!")
 
 
 def max_with_reduce():
@@ -78,6 +107,7 @@ def min_with_reduce():
 def main():
     test_concat_with_reduce()
     test_flatten_with_reduce()
+    test_product_with_reduce()
 
 
 main()
