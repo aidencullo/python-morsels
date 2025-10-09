@@ -5,12 +5,14 @@ import functools
 def head(seq):
     return seq[0] if seq else None
 
-def reduce(op, sequence, default=None):
+obj = object()
+
+def reduce(op, sequence, default=obj):
     if not sequence:
         raise TypeError("reduce() of empty iterable with no initial value")
     acc = default
     for x in sequence:
-        if acc is None:
+        if acc is obj:
             acc = x
         else:
             acc = op(acc, x)
@@ -35,8 +37,8 @@ def test_my_reduce():
     assert reduce(mul, one_to_ten) == functools.reduce(mul, one_to_ten)
     assert reduce(max, one_to_ten) == functools.reduce(max, one_to_ten)
     assert reduce(min, one_to_ten) == functools.reduce(min, one_to_ten)
-    print(functools.reduce(is_none, nones))
-    print(functools.reduce(is_none, not_nones))
+    assert reduce(is_none, nones) == functools.reduce(is_none, nones)
+    assert reduce(is_none, not_nones) == functools.reduce(is_none, not_nones)
     print("all my reduce tests passed!")
 
 test_my_reduce()
