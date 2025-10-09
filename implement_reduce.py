@@ -14,8 +14,8 @@ def reduce(op, sequence, default=obj):
     for x in sequence:
         if acc is obj:
             acc = x
-        else:
-            acc = op(acc, x)
+            continue
+        acc = op(acc, x)
     return acc
 
 def test_head():
