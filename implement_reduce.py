@@ -5,13 +5,15 @@ import functools
 def head(seq):
     return seq[0] if seq else None
 
-def reduce(op, sequence):
+def reduce(op, sequence, default=None):
     if not sequence:
         raise TypeError("reduce() of empty iterable with no initial value")
-    initial = head(sequence)
-    acc = initial
-    for x in sequence[1:]:
-        acc = op(acc, x)
+    acc = default
+    for x in sequence:
+        if acc is None:
+            acc = x
+        else:
+            acc = op(acc, x)
     return acc
 
 def test_head():
