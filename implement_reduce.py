@@ -2,8 +2,21 @@ from operator import mul
 from math import prod
 import functools
 
+def head(seq):
+    return seq[0] if seq else None
+
 def reduce(op, sequence):
+    if not sequence:
+        raise TypeError("reduce() of empty iterable with no initial value")
+    initial = sequence[0]
     return sum(sequence)
+
+def test_head():
+    assert head([1]) == 1
+    assert head([1,10]) == 1
+    assert head(list(range(1, 10))) == 1
+    assert head([]) is None
+    print("all my head tests passed!")
 
 def test_functools_reduce():
     one_to_ten = list(range(1, 11))
@@ -25,3 +38,4 @@ def test_my_reduce():
 
 # test_my_reduce()
 test_functools_reduce()
+test_head()
