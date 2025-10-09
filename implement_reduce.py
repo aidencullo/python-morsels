@@ -8,8 +8,11 @@ def head(seq):
 def reduce(op, sequence):
     if not sequence:
         raise TypeError("reduce() of empty iterable with no initial value")
-    initial = sequence[0]
-    return sum(sequence)
+    initial = head(sequence)
+    acc = initial
+    for x in sequence[1:]:
+        acc = op(acc, x)
+    return acc
 
 def test_head():
     assert head([1]) == 1
@@ -36,6 +39,6 @@ def test_my_reduce():
     assert reduce(min, one_to_ten) == min(one_to_ten)
     print("all my reduce tests passed!")
 
-# test_my_reduce()
+test_my_reduce()
 test_functools_reduce()
 test_head()
