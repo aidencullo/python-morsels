@@ -25,7 +25,9 @@ def test_head():
 
 def test_my_reduce():
     one_to_ten = list(range(1, 11))
+    strs = list("hello world")
     assert reduce(add, one_to_ten) == functools.reduce(add, one_to_ten)
+    assert reduce(add, strs) == functools.reduce(add, strs)
     assert reduce(mul, one_to_ten) == functools.reduce(mul, one_to_ten)
     assert reduce(max, one_to_ten) == functools.reduce(max, one_to_ten)
     assert reduce(min, one_to_ten) == functools.reduce(min, one_to_ten)
