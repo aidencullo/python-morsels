@@ -2,11 +2,15 @@
 
 # difference using set comprehension
 def difference_comprehension(A, B):
-    pass
-
+    return set(a for a in A if a not in B)
+        
 # difference using explicit loop
 def difference_loop(A, B):
-    pass
+    C = set()
+    for a in A:
+        if a not in B:
+            C.add(a)
+    return C
 
 def test_set():
     """Test both difference implementations with 4 test cases"""
