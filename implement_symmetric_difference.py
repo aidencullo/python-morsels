@@ -1,12 +1,21 @@
+import itertools
+
 # set1 ^ set2 → O(len(set1) + len(set2))
 
 # symmetric difference using set comprehension
 def symmetric_difference_comprehension(A, B):
-    pass
+    return set(c for c in itertools.chain(A, B) if c not in A & B)
 
 # symmetric difference using explicit loop
 def symmetric_difference_loop(A, B):
-    pass
+    C = set()
+    for a in A:
+        if a not in B:
+            C.add(a)
+    for b in B:
+        if b not in A:
+            C.add(b)
+    return C
 
 def test_set():
     """Test both symmetric difference implementations with 4 test cases"""
