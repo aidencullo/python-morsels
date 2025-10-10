@@ -56,7 +56,37 @@ print("c1 | c2:", c1 | c2)    # union (max)
 print("c1 == c2:", c1 == c2)
 print("c1 <= c2:", c1 <= c2)
 
+
 # unary + and -
 c3 = Counter(a=2, b=-4)
 print("\n+c3:", +c3)  # remove non-positive
 print("-c3:", -c3)     # remove non-positive, invert negatives to positive
+
+
+
+from collections import Counter
+
+# Initial Counter
+c = Counter(a=3, b=1)
+print("Original c:", c)
+
+# Update with another Counter
+c.update(Counter(a=2, c=5))
+print("\nAfter c.update(Counter(a=2, c=5)):", c)
+print("notice that unlike dict, this compounds the values of a given key, it doesn't replace them")
+# a:3+2=5, b:1, c:5
+
+# Update with a dict
+c.update({'b': 2, 'd': 4})
+print("\nAfter c.update({'b':2, 'd':4}):", c)
+# a:5, b:1+2=3, c:5, d:4
+
+# Update with an iterable (adds 1 for each occurrence)
+c.update(['a', 'b', 'b', 'e'])
+print("\nAfter c.update(['a','b','b','e']):", c)
+# a:5+1=6, b:3+2=5, c:5, d:4, e:1
+
+# Note: update returns None, modifies c in place
+result = c.update({'f':1})
+print("\nReturn value of update:", result)
+print("c after update({'f':1}):", c)
