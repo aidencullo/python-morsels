@@ -1,12 +1,20 @@
 # set1 | set2 → O(len(set1) + len(set2))
 
 # union using set comprehension
+import itertools
+
+
 def union_comprehension(A, B):
-    pass
+    return set(itertools.chain(A, B))
 
 # union using explicit loop
 def union_loop(A, B):
-    pass
+    C = set()
+    for a in A:
+        C.add(a)
+    for b in B:
+        C.add(b)
+    return C
 
 def test_set():
     """Test both union implementations with 4 test cases"""
